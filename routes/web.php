@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +17,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/hello', function () {
+    return 'Hello World';
+});
+
+Route::get('/hello', [WelcomeController::class, 'hello']);
 
 Route::get('/', function () {
     return view('welcome');
@@ -44,7 +54,7 @@ Route::get(
 )->name('profile');
 
 // Generating URLs...
-$url = route('profile');
+//$url = route('profile');
 
 // Generating Redirects...
 //return redirect()->route('profile');
